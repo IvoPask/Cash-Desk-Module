@@ -127,6 +127,8 @@ public class BalanceLogService {
         readWriteLock.writeLock().lock();
         File logFile = new File(propertiesConfig.getBalanceFile());
 
+        checkParentDirectoryExists(logFile);
+
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(logFile, true))) {
             for (Cashier cashier : cashiers.values()) {
                 StringBuilder line = new StringBuilder();
@@ -152,6 +154,18 @@ public class BalanceLogService {
             log.error("Error writing balance data to file", e);
         } finally {
             readWriteLock.writeLock().unlock();
+        }
+    }
+
+    private void checkParentDirectoryExists(File file) {
+        File parentDir = file.getParentFile();
+        if (parentDir != null && !parentDir.exists()) {
+            boolean created = parentDir.mkdirs();
+            if (created) {
+                log.info("Created missing directories: {}", parentDir.getAbsolutePath());
+            } else {
+                log.warn("Failed to create directories: {}", parentDir.getAbsolutePath());
+            }
         }
     }
 
