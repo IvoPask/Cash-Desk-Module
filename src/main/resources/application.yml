@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: cashdesk
+  security:
+    request-header: ${REQUEST_HEADER:FIB-X-AUTH}
+    api-key: ${API_KEY:f9Uie8nNf112hx8s}
+
+# The default request header and API key are hardcoded only for demo purposes.
+# In production environments, these values must be injected via environment variables
+# during application startup for security reasons.
+
+transaction:
+  history:
+    file: ${TRANSACTION_HISTORY_FILE:./var/log/cashdesk/transaction_history.txt}
+
+balance:
+  history:
+    file: ${BALANCE_HISTORY_FILE:./var/log/cashdesk/balance_history.txt}
+
+logging:
+  level:
+    org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration: OFF

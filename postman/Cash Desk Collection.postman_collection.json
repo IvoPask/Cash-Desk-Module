@@ -1,0 +1,534 @@
+{
+	"info": {
+		"_postman_id": "61668af6-c9d9-4e86-bd29-a29664a8fcfd",
+		"name": "Cash Desk Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2529829"
+	},
+	"item": [
+		{
+			"name": "Get balances (All)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}{{cash_balance}}",
+					"host": [
+						"{{base_url}}{{cash_balance}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get balance (Linda)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}{{cash_balance}}?cashier=LINDA",
+					"host": [
+						"{{base_url}}{{cash_balance}}"
+					],
+					"query": [
+						{
+							"key": "cashier",
+							"value": "LINDA"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Withdrawal BGN (Linda)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cashierName\": \"LINDA\",\n    \"type\": \"WITHDRAWAL\",\n    \"currencyCode\": \"BGN\",\n    \"denominations\": [\n        {\n            \"value\": 10,\n            \"quantity\": 5\n        },\n        {\n            \"value\": 50,\n            \"quantity\": 1\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}{{cash_operation}}",
+					"host": [
+						"{{base_url}}{{cash_operation}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Withdrawal EUR (Linda)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cashierName\": \"LINDA\",\n    \"type\": \"WITHDRAWAL\",\n    \"currencyCode\": \"EUR\",\n    \"denominations\": [\n        {\n            \"value\": 50,\n            \"quantity\": 10\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}{{cash_operation}}",
+					"host": [
+						"{{base_url}}{{cash_operation}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deposit BGN (Linda)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cashierName\": \"LINDA\",\n    \"type\": \"DEPOSIT\",\n    \"currencyCode\": \"BGN\",\n    \"denominations\": [\n        {\n            \"value\": 10,\n            \"quantity\": 10\n        },\n        {\n            \"value\": 50,\n            \"quantity\": 10\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}{{cash_operation}}",
+					"host": [
+						"{{base_url}}{{cash_operation}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deposit EUR (Linda)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cashierName\": \"LINDA\",\n    \"type\": \"DEPOSIT\",\n    \"currencyCode\": \"EUR\",\n    \"denominations\": [\n        {\n            \"value\": 20,\n            \"quantity\": 5\n        },\n        {\n            \"value\": 50,\n            \"quantity\": 2\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}{{cash_operation}}",
+					"host": [
+						"{{base_url}}{{cash_operation}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get balance after transactions (Linda)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}{{cash_balance}}?cashier=linda",
+					"host": [
+						"{{base_url}}{{cash_balance}}"
+					],
+					"query": [
+						{
+							"key": "cashier",
+							"value": "linda"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get balance with params (Linda)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}{{cash_balance}}?dateFrom={{current_timestamp - 1 hour}}&dateTo={{current_timestamp}}&cashier=LINDA",
+					"host": [
+						"{{base_url}}{{cash_balance}}"
+					],
+					"query": [
+						{
+							"key": "dateFrom",
+							"value": "{{current_timestamp - 1 hour}}"
+						},
+						{
+							"key": "dateTo",
+							"value": "{{current_timestamp}}"
+						},
+						{
+							"key": "cashier",
+							"value": "LINDA"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get balance (Martina)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}{{cash_balance}}?cashier=MARTINA",
+					"host": [
+						"{{base_url}}{{cash_balance}}"
+					],
+					"query": [
+						{
+							"key": "cashier",
+							"value": "MARTINA"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Withdrawal BGN (Martina)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cashierName\": \"MARTINA\",\n    \"type\": \"WITHDRAWAL\",\n    \"currencyCode\": \"BGN\",\n    \"denominations\": [\n        {\n            \"value\": 10,\n            \"quantity\": 5\n        },\n        {\n            \"value\": 50,\n            \"quantity\": 1\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}{{cash_operation}}",
+					"host": [
+						"{{base_url}}{{cash_operation}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Withdrawal EUR (Martina)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cashierName\": \"MARTINA\",\n    \"type\": \"WITHDRAWAL\",\n    \"currencyCode\": \"EUR\",\n    \"denominations\": [\n        {\n            \"value\": 50,\n            \"quantity\": 10\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}{{cash_operation}}",
+					"host": [
+						"{{base_url}}{{cash_operation}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deposit BGN (Martina)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cashierName\": \"MARTINA\",\n    \"type\": \"DEPOSIT\",\n    \"currencyCode\": \"BGN\",\n    \"denominations\": [\n        {\n            \"value\": 10,\n            \"quantity\": 10\n        },\n        {\n            \"value\": 50,\n            \"quantity\": 10\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}{{cash_operation}}",
+					"host": [
+						"{{base_url}}{{cash_operation}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deposit EUR (Martina)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cashierName\": \"MARTINA\",\n    \"type\": \"DEPOSIT\",\n    \"currencyCode\": \"EUR\",\n    \"denominations\": [\n        {\n            \"value\": 20,\n            \"quantity\": 5\n        },\n        {\n            \"value\": 50,\n            \"quantity\": 2\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}{{cash_operation}}",
+					"host": [
+						"{{base_url}}{{cash_operation}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get balance after transactions (Martina)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}{{cash_balance}}?cashier=martina",
+					"host": [
+						"{{base_url}}{{cash_balance}}"
+					],
+					"query": [
+						{
+							"key": "cashier",
+							"value": "martina"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get balance with params (Martina)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}{{cash_balance}}?dateFrom={{current_timestamp - 1 hour}}&dateTo={{current_timestamp}}&cashier=MARTINA",
+					"host": [
+						"{{base_url}}{{cash_balance}}"
+					],
+					"query": [
+						{
+							"key": "dateFrom",
+							"value": "{{current_timestamp - 1 hour}}"
+						},
+						{
+							"key": "dateTo",
+							"value": "{{current_timestamp}}"
+						},
+						{
+							"key": "cashier",
+							"value": "MARTINA"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get balance (Peter)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}{{cash_balance}}?cashier=PETER",
+					"host": [
+						"{{base_url}}{{cash_balance}}"
+					],
+					"query": [
+						{
+							"key": "cashier",
+							"value": "PETER"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Withdrawal BGN (Peter)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cashierName\": \"PETER\",\n    \"type\": \"WITHDRAWAL\",\n    \"currencyCode\": \"BGN\",\n    \"denominations\": [\n        {\n            \"value\": 10,\n            \"quantity\": 5\n        },\n        {\n            \"value\": 50,\n            \"quantity\": 1\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}{{cash_operation}}",
+					"host": [
+						"{{base_url}}{{cash_operation}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Withdrawal EUR (Peter)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cashierName\": \"PETER\",\n    \"type\": \"WITHDRAWAL\",\n    \"currencyCode\": \"EUR\",\n    \"denominations\": [\n        {\n            \"value\": 50,\n            \"quantity\": 10\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}{{cash_operation}}",
+					"host": [
+						"{{base_url}}{{cash_operation}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deposit BGN (Peter)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cashierName\": \"PETER\",\n    \"type\": \"DEPOSIT\",\n    \"currencyCode\": \"BGN\",\n    \"denominations\": [\n        {\n            \"value\": 10,\n            \"quantity\": 10\n        },\n        {\n            \"value\": 50,\n            \"quantity\": 10\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}{{cash_operation}}",
+					"host": [
+						"{{base_url}}{{cash_operation}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deposit EUR (Peter)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cashierName\": \"PETER\",\n    \"type\": \"DEPOSIT\",\n    \"currencyCode\": \"EUR\",\n    \"denominations\": [\n        {\n            \"value\": 20,\n            \"quantity\": 5\n        },\n        {\n            \"value\": 50,\n            \"quantity\": 2\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}{{cash_operation}}",
+					"host": [
+						"{{base_url}}{{cash_operation}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get balance after transactions (Peter)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}{{cash_balance}}?cashier=peter",
+					"host": [
+						"{{base_url}}{{cash_balance}}"
+					],
+					"query": [
+						{
+							"key": "cashier",
+							"value": "peter"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get balance with params (Peter)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}{{cash_balance}}?dateFrom={{current_timestamp - 1 hour}}&dateTo={{current_timestamp}}&cashier=PETER",
+					"host": [
+						"{{base_url}}{{cash_balance}}"
+					],
+					"query": [
+						{
+							"key": "dateFrom",
+							"value": "{{current_timestamp - 1 hour}}"
+						},
+						{
+							"key": "dateTo",
+							"value": "{{current_timestamp}}"
+						},
+						{
+							"key": "cashier",
+							"value": "PETER"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{api_key}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "{{api_key_header}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"var moment = require('moment');",
+					"var now = moment().format(\"YYYY-MM-DDTHH:mm:ss\");",
+					"var oneHourAgo = moment().subtract(1, 'hour').format(\"YYYY-MM-DDTHH:mm:ss\");",
+					"pm.environment.set(\"current_timestamp\", now);",
+					"pm.environment.set(\"current_timestamp - 1 hour\", oneHourAgo);"
+				]
+			}
+		}
+	]
+}
